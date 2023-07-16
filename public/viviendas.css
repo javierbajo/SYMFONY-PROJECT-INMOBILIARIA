@@ -1,0 +1,6 @@
+
+a:link, a:active, a:hover, a:visited {text-decoration:none !important;}
+
+a{
+    color: inherit;
+}

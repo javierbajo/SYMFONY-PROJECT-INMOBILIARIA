@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block contenido %}
+<link  type="text/css" rel="stylesheet" href="{{ asset("/viviendaTarjeta.css")}}">
+<div class="contenedor-tarjeta">
+
+  <img src="{{vivienda.houseImg}}" alt="{{vivienda.houseName}}" class="imagen-tarjeta" />
+
+  <div class="contenedor-texto">
+  <h4 class="title text-center h4-tarjeta">{{ vivienda.houseName }}</h4>
+
+  <p class="p-tarjeta">{{vivienda.houseDescription}}</p>
+  <p class="p-tarjeta">{{vivienda.houseType}}</p>
+  <p class="p-tarjeta">Habitaciones: {{vivienda.houseRooms}}</p>
+  <p class="p-tarjeta">Baños: {{vivienda.houseBathrooms}}</p>
+  <p class="p-tarjeta">Superficie: {{vivienda.houseSurface}}</p>
+  <p class="p-tarjeta">Por sólo {{vivienda.housePrice|number_format(0, '.',',')}}€</p>
+</div>
+</div>
+
+{% endblock %}

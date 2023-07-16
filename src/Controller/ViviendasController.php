@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ViviendasController extends AbstractController{
-
+//---------------------------------------------------------------------------------------------
     #[Route("/viviendas")]
 
     public function viviendas(EntityManagerInterface $doctrineCasas){
@@ -22,13 +22,8 @@ class ViviendasController extends AbstractController{
 
         return $this->render("viviendas.html.twig", ["viviendas"=>$viviendas]);
 
- 
     }
-
-
-
-
-
+//---------------------------------------------------------------------------------------------
     #[Route("/new/viviendas")]
 
     public function newVivienda(EntityManagerInterface $doctrineCasas){
@@ -60,7 +55,18 @@ class ViviendasController extends AbstractController{
 
         return new Response("Casas cargadas correctamente");
     }
-    
+//---------------------------------------------------------------------------------------------
+#[Route("/vivienda/{id}", name:"getVivienda")]
+
+public function getTarjetaVivienda(EntityManagerInterface $doctrineCasas, $id){
+
+    $repository = $doctrineCasas -> getRepository(Vivienda::class);
+    $vivienda = $repository -> find($id);
+     
+    return $this->render("viviendaTarjeta.html.twig", ["vivienda"=>$vivienda]);
+
+}
+
 }
 
 
