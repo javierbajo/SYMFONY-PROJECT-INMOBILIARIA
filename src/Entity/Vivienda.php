@@ -32,7 +32,11 @@ class Vivienda
     private ?string $houseDescription = null;
 
     #[ORM\Column]
-    private ?int $houseBedrooms = null;
+    private ?int $houseBathrooms = null;
+
+    #[ORM\Column]
+    private ?int $housePrice = null;
+
 
     public function getId(): ?int
     {
@@ -111,15 +115,29 @@ class Vivienda
         return $this;
     }
 
-    public function getHouseBedrooms(): ?int
+    public function getHouseBathrooms(): ?int
     {
-        return $this->houseBedrooms;
+        return $this->houseBathrooms;
     }
 
-    public function setHouseBedrooms(int $houseBedrooms): static
+    public function setHouseBathrooms(int $houseBathrooms): static
     {
-        $this->houseBedrooms = $houseBedrooms;
+        $this->houseBathrooms = $houseBathrooms;
 
         return $this;
     }
+
+    public function getHousePrice(): ?int
+    {
+        return $this->housePrice;
+    }
+
+    public function setHousePrice(int $housePrice): static
+    {
+        $this->housePrice = $housePrice;
+
+        return $this;
+    }
+
+
 }
