@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\LocalidadRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: LocalidadRepository::class)]
@@ -27,6 +29,14 @@ class Localidad
 
     #[ORM\Column(length: 255)]
     private ?string $placeImg = null;
+
+    #[ORM\OneToMany(mappedBy: 'localidad', targetEntity: Vivienda::class)]
+    private Collection $placeHouses;
+
+    public function __construct()
+    {
+        $this->placeHouses = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -89,6 +99,36 @@ class Localidad
     public function setPlaceImg(string $placeImg): static
     {
         $this->placeImg = $placeImg;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Vivienda>
+     */
+    public function getPlaceHouses(): Collection
+    {
+        return $this->placeHouses;
+    }
+
+    public function addPlaceHouse(Vivienda $placeHouse): static
+    {
+        if (!$this->placeHouses->contains($placeHouse)) {
+            $this->placeHouses->add($placeHouse);
+            $placeHouse->setLocalidad($this);
+        }
+
+        return $this;
+    }
+
+    public function removePlaceHouse(Vivienda $placeHouse): static
+    {
+        if ($this->placeHouses->removeElement($placeHouse)) {
+            // set the owning side to null (unless already changed)
+            if ($placeHouse->getLocalidad() === $this) {
+                $placeHouse->setLocalidad(null);
+            }
+        }
 
         return $this;
     }

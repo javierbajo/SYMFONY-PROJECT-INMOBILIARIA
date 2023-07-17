@@ -28,7 +28,7 @@ class Vivienda
     #[ORM\Column]
     private ?int $houseRooms = null;
 
-    #[ORM\Column(length: 500)]
+    #[ORM\Column(length: 1000)]
     private ?string $houseDescription = null;
 
     #[ORM\Column]
@@ -36,6 +36,9 @@ class Vivienda
 
     #[ORM\Column]
     private ?int $housePrice = null;
+
+    #[ORM\ManyToOne(inversedBy: 'placeHouses')]
+    private ?Localidad $localidad = null;
 
 
     public function getId(): ?int
@@ -135,6 +138,18 @@ class Vivienda
     public function setHousePrice(int $housePrice): static
     {
         $this->housePrice = $housePrice;
+
+        return $this;
+    }
+
+    public function getLocalidad(): ?Localidad
+    {
+        return $this->localidad;
+    }
+
+    public function setLocalidad(?Localidad $localidad): static
+    {
+        $this->localidad = $localidad;
 
         return $this;
     }

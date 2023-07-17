@@ -15,7 +15,7 @@
                         <p class="card-text">Habitaciones: {{ item.houseRooms }}</p>
                         <p class="card-text">Cuartos de baño: {{ item.houseBathrooms }}</p>
                         <p class="card-text">Metros cuadrados: {{ item.houseSurface }}</p>
-                        <p class="card-text">PRECIO: {{ item.housePrice|number_format(2, '.',',') }}€</p>
+                        <p class="card-text">PRECIO: {{ item.housePrice|number_format(0, '.',',') }}€</p>
                         {# <a href="{{ path('getPokemon', {'id': pokemon.id}) }}" class="btn btn-primary">Más Info</a>
                         {% if is_granted("ROLE_ADMIN")%}
                         <a href="{{ path('editPokemon', {'id': pokemon.id}) }}" class="btn 

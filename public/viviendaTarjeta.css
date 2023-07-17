@@ -1,6 +1,7 @@
 .contenedor-tarjeta{
     /* width: 80%;  */
-    height: 600px;
+    height: 800px;
+    min-width: 1200px;
     margin: 30px 10% 50px 10%;
     display: flex;
     align-items: center;
@@ -15,7 +16,7 @@
     object-fit: cover;
 }
 .contenedor-texto{
-    display:block;
+    /* display:block; */
     text-align: center;
     padding: 40px;
     font-family: Lato, sans-serif;

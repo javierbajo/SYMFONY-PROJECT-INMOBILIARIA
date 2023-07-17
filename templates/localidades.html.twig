@@ -1,5 +1,33 @@
 {% extends "base.html.twig" %}
 
 {% block contenido %}
-	<h3>{{localidadesMessage}}</h3>
+
+
+<link  type="text/css" rel="stylesheet" href="{{ asset("/viviendas.css")}}">
+	    <h2>Listado de Localidades </h2>
+    <div class="row row-cols-1 row-cols-md-2">
+        {% for item in localidades %}
+        {# <a href="{{ path('getVivienda', {'id': item.id}) }}"> #}
+            <div class="col mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ item.placeImg }}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.placeName }}</h5>
+                        <p class="card-text">Tipo: {{ item.placeType }}</p>
+                        <p class="card-text">Habitantes: {{ item.placePopulation|number_format(0, '.',',') }}</p>
+                        <p class="card-text">{{ item.placeDescription }}</p>
+
+                        {# <a href="{{ path('getPokemon', {'id': pokemon.id}) }}" class="btn btn-primary">Más Info</a>
+                        {% if is_granted("ROLE_ADMIN")%}
+                        <a href="{{ path('editPokemon', {'id': pokemon.id}) }}" class="btn 
+                        btn-primary">Editar</a>
+                        {% endif %} #}
+                    </div>
+                </div>
+            </div>
+        {# </a> #}
+        {% endfor %}
+    </div>
+
+
 {% endblock %}
