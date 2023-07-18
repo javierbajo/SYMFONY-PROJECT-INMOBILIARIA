@@ -2,4 +2,11 @@
 
 {% block contenido %}
 	<h3>{{adminMessage}}</h3>
+	{% if is_granted('ROLE_ADMIN')%}
+		</br>
+		<h3>Ves esto porque tienes derechos de administrador</h3>
+	{% else %}
+		</br>
+		<h3>Para entrar aquí hacen falta derechos de administrador</h3>
+	{% endif %}
 {% endblock %}

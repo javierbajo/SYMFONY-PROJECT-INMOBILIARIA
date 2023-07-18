@@ -14,8 +14,9 @@ class AdminController extends AbstractController{
 
     #[Route("/admin")]
 
-    public function viviendas(){
+    public function admin(){
         $adminMessage = "Esto es ADMIN";
+        // $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
         return $this->render("admin.html.twig", [
             'adminMessage' => $adminMessage,
