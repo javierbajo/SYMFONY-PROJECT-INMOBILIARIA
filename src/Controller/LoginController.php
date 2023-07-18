@@ -32,7 +32,7 @@ class LoginController extends AbstractController{
 
             $doctrine->persist($user);
             $doctrine->flush();
-            return $this->redirectToRoute('/');
+            return $this->redirectToRoute('home');
         }
         return $this->renderForm('login.html.twig', ['userForm' => $form]);
     }

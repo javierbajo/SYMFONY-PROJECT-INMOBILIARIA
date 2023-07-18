@@ -12,7 +12,7 @@ class HomeController extends AbstractController{
 
 
 
-    #[Route("/")]
+    #[Route("/", name:"home")]
 
     public function home(){
         $homeMessage = "Esto es el HOME";

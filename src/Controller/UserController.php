@@ -29,7 +29,7 @@ class UserController extends AbstractController{
 
             $doctrine->persist($user);
             $doctrine->flush();
-            return $this->redirectToRoute('/home');
+            return $this->redirectToRoute('home');
         }
         return $this->renderForm('registroUser.html.twig', ['userForm' => $form]);
     }
@@ -52,7 +52,7 @@ class UserController extends AbstractController{
 
             $doctrine->persist($user);
             $doctrine->flush();
-            return $this->redirectToRoute('/home');
+            return $this->redirectToRoute('home');
         }
         return $this->renderForm('registroAdmin.html.twig', ['userForm' => $form]);
     }
